@@ -26,6 +26,7 @@
     <button @dblclick="subtractAge(10)">Subtract ten year</button>
 
     <div class="canvas" @mousemove="updatePostion">{{ x }}, {{ y }}</div>
+    <a @click.prevent="click" :href="website">Google</a>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
