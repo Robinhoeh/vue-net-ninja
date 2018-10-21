@@ -9,7 +9,9 @@ new Vue({
     x: 0,
     y: 0,
     newName: '',
-    newAge: ''
+    newAge: '',
+    a: 0,
+    b: 0
   },
   methods: {
     greet(timeOfDay) {
@@ -31,9 +33,16 @@ new Vue({
     logName() {
       console.log('You entered ur name')
     },
-
     logAge() {
       console.log('You entered ur age')
+    }
+  },
+  computed: {
+    addToA() {
+      return this.a + this.age
+    },
+    addToB() {
+      return this.b + this.age
     }
   }
 });
