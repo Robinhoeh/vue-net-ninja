@@ -16,6 +16,16 @@
     <a :href="website">Google</a>
     <input type="text" :value="name">
     <p v-html="websiteTag"></p>
+
+    <h2>Events</h2>
+    <button @click.once="addAge(1)">Add one year</button>
+    <button @click="subtractAge(1)">Subtract one year</button>
+    <p>My age is: {{ age }}</p>
+
+    <button @dblclick="addAge(10)">Add ten year</button>
+    <button @dblclick="subtractAge(10)">Subtract ten year</button>
+
+    <div class="canvas" @mousemove="updatePostion">{{ x }}, {{ y }}</div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
