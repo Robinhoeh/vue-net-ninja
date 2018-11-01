@@ -13,8 +13,10 @@
   <div id="vue-app">
     <h1>Data binding</h1>
     <h1>{{ greet('afternoon') }}</h1>
+    <h2>{{ greet('evening') }}</h2>
     <a :href="website">Google</a>
     <input type="text" :value="name">
+    <!-- v-html injects HTML from data object -->
     <p v-html="websiteTag"></p>
 
     <h2>Events</h2>
@@ -25,7 +27,8 @@
     <button @dblclick="addAge(10)">Add ten year</button>
     <button @dblclick="subtractAge(10)">Subtract ten year</button>
 
-    <!-- <div class="canvas" @mousemove="updatePostion">{{ x }}, {{ y }}</div> -->
+    <div class="canvas" @mousemove="updatePostion">{{ x }}, {{ y }}
+    </div>
     <a @click.prevent="click" :href="website">Google</a>
 
     <h2>Keyboard Events</h2>
@@ -39,11 +42,12 @@
 
     <h2>Two way Data binding</h2>
     <form action="">
-      <label for="">Name: {{ newName}} </label>
+      <label for="">Name: {{ newName }} </label>
       <input type="text" v-model="newName">
       <label for="">Age: {{ newAge }}</label>
       <input type="number" v-model="newAge">
     </form>
+
 
     <h2>Computed Properties</h2>
     <button @click="a++">Add to A</button>
@@ -53,6 +57,35 @@
     <p>Age + A = {{addToA}}</p>
     <p>Age + B = {{addToB}}</p>
 
+    <button @click="count++"></button>
+    <p>Count = {{ count }} </p>
+    <p>Age + count = {{ totalCount }} </p>
+
+    <h1>Dynamic CSS</h1>
+
+    <h2>Example 1</h2>
+    <!-- key:value pair
+    IF color === true, the CSS class of color will be applied
+    Class is dependant on truth or false of key:value pair
+
+    @click - if the DATA attr is true, apply CSS class
+    if its NOT true !, don't apply the CSS class
+    -->
+    <!-- <div @click="available = !available" :class="{color: available}">
+      <span>Ryu</span>
+    </div>
+
+    <div @click="ready = !ready" :class="{readyStatus: ready}">
+      <!-- if readyStatus === false, dont apply css -->
+    <!-- <span class="bus">bus</span>
+  </div>  -->
+
+    <h2>Example 2</h2>
+    <button @click="nearby = !nearby">Toggle nearby</button>
+    <button @click="available = !available">Toggle available</button>
+    <div :class="compClasses">
+      <span>Ryu</span>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>

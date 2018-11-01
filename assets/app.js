@@ -10,8 +10,13 @@ new Vue({
     y: 0,
     newName: '',
     newAge: '',
+    oldName: '',
     a: 0,
-    b: 0
+    b: 0,
+    count: 0,
+    available: false,
+    nearby: false,
+    ready: false
   },
   methods: {
     greet(timeOfDay) {
@@ -28,7 +33,7 @@ new Vue({
       this.y = e.offsetY
     },
     click() {
-      alert('you clicked me')
+      alert('you clicked me, sorry this link goes nowhere')
     },
     logName() {
       console.log('You entered ur name')
@@ -43,6 +48,15 @@ new Vue({
     },
     addToB() {
       return this.b + this.age
+    },
+    totalCount() {
+      return this.count + this.age
+    },
+    compClasses() {
+      return {
+        available: this.available,
+        nearby: this.nearby
+      }
     }
   }
 });
