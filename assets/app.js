@@ -16,7 +16,17 @@ new Vue({
     count: 0,
     available: false,
     nearby: false,
-    ready: false
+    ready: false,
+    timeStamp: false,
+    timeOfDay: false,
+    error: true,
+    success: true,
+    characters: ['Mario', 'Luigi', 'Yoshi', 'Bowser'],
+      ninjas: [
+        { name: 'Ryu', age: 25 },
+        { name: 'Yoshi', age: 35 },
+        { name: 'Ken', age: 55 }
+      ]
   },
   methods: {
     greet(timeOfDay) {
@@ -56,6 +66,12 @@ new Vue({
       return {
         available: this.available,
         nearby: this.nearby
+      }
+    },
+    workStatus() {
+      return{
+        timeStamp: this.timeStamp,
+        timeOfDay: this.timeOfDay
       }
     }
   }

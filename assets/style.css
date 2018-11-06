@@ -17,7 +17,7 @@ span{
   background: green;
 }
 
-.nearby span:after{
+.nearby span::after{
   content: "nearby";
   margin-left: 10px;
 }
@@ -29,4 +29,16 @@ span{
 .readyStatus .bus{
   background: green;
   color: white;
+}
+
+
+.work{
+  background: green;
+}
+.timeStamp .work{
+  background: red;
+}
+.timeStamp span::after{
+  content: 'Late';
+  margin-left: 10px;
 }

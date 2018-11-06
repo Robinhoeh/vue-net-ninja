@@ -82,10 +82,55 @@
 
     <h2>Example 2</h2>
     <button @click="nearby = !nearby">Toggle nearby</button>
+    <!-- on click, check if nearby is true/false -->
     <button @click="available = !available">Toggle available</button>
+    <!-- When button above is clicked, compClasses reference the data object - checks for truth/false - if true, style is applied -->
     <div :class="compClasses">
       <span>Ryu</span>
     </div>
+
+    <h2>Example 3</h2>
+    <button @click="timeStamp = !timeStamp">Toggle on time or not</button>
+    <div :class="workStatus">
+      <span class="work">Work time</span>
+    </div>
+    <br>
+    <h1>Conditionals</h1>
+
+    <button @click="error = !error">Toggle Error</button>
+    <button @click="success = !success">Toggle Success</button>
+    <p v-if="error">Error</p>
+    <p v-else-if="success">Success</p>
+
+    <!-- <p v-show="error">error</p>
+    <p v-show="success">success</p> -->
+
+    <h2>Looping v for</h2>
+    <ul>
+      <li v-for="character in characters">{{ character }}</li>
+    </ul>
+
+    <ul>
+      <li v-for="(ninja, i) in ninjas"> {{ i }}. {{ ninja.name }} - {{ ninja.age }}</li>
+    </ul>
+
+    <!-- template tag doesn't get outputed  - Vue reads it and doesnt inject it -->
+    <template v-for="(ninja, i) in ninjas">
+      <h3>{{ i }}. {{ninja.name}}</h3>
+      <p>{{ninja.age}}</p>
+    </template>
+
+
+    <!-- Loop through each object - use (val,key) to loop again  for each object -->
+    <template v-for="ninja in ninjas">
+      <div v-for="(val,key) in ninja">
+        <p>{{ key }} - {{ val }}</p>
+      </div>
+    </template>
+
+
+
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
