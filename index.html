@@ -10,123 +10,156 @@
 
 <body>
 
-  <div id="vue-app">
+  <!-- <div id="vue-app">
     <h1>Data binding</h1>
     <h1>{{ greet('afternoon') }}</h1>
     <h2>{{ greet('evening') }}</h2>
     <a :href="website">Google</a>
     <input type="text" :value="name">
     <!-- v-html injects HTML from data object -->
-    <p v-html="websiteTag"></p>
+  <p v-html="websiteTag"></p>
 
-    <h2>Events</h2>
-    <button @click.once="addAge(1)">Add one year</button>
-    <button @click="subtractAge(1)">Subtract one year</button>
-    <p>My age is: {{ age }}</p>
+  <h2>Events</h2>
+  <button @click.once="addAge(1)">Add one year</button>
+  <button @click="subtractAge(1)">Subtract one year</button>
+  <p>My age is: {{ age }}</p>
 
-    <button @dblclick="addAge(10)">Add ten year</button>
-    <button @dblclick="subtractAge(10)">Subtract ten year</button>
+  <button @dblclick="addAge(10)">Add ten year</button>
+  <button @dblclick="subtractAge(10)">Subtract ten year</button>
 
-    <div class="canvas" @mousemove="updatePostion">{{ x }}, {{ y }}
-    </div>
-    <a @click.prevent="click" :href="website">Google</a>
+  <div class="canvas" @mousemove="updatePostion">{{ x }}, {{ y }}
+  </div>
+  <a @click.prevent="click" :href="website">Google</a>
 
-    <h2>Keyboard Events</h2>
+  <h2>Keyboard Events</h2>
 
-    <form action="">
-      <label for="">Name: </label>
-      <input type="text" @keyup.enter="logName">
-      <label for="">Age: </label>
-      <input type="number" @keyup.enter="logAge">
-    </form>
+  <form action="">
+    <label for="">Name: </label>
+    <input type="text" @keyup.enter="logName">
+    <label for="">Age: </label>
+    <input type="number" @keyup.enter="logAge">
+  </form>
 
-    <h2>Two way Data binding</h2>
-    <form action="">
-      <label for="">Name: {{ newName }} </label>
-      <input type="text" v-model="newName">
-      <label for="">Age: {{ newAge }}</label>
-      <input type="number" v-model="newAge">
-    </form>
+  <h2>Two way Data binding</h2>
+  <form action="">
+    <label for="">Name: {{ newName }} </label>
+    <input type="text" v-model="newName">
+    <label for="">Age: {{ newAge }}</label>
+    <input type="number" v-model="newAge">
+  </form>
 
 
-    <h2>Computed Properties</h2>
-    <button @click="a++">Add to A</button>
-    <button @click="b++">Add to B</button>
-    <p>A - {{ a }}</p>
-    <p>B - {{ b }}</p>
-    <p>Age + A = {{addToA}}</p>
-    <p>Age + B = {{addToB}}</p>
+  <h2>Computed Properties</h2>
+  <button @click="a++">Add to A</button>
+  <button @click="b++">Add to B</button>
+  <p>A - {{ a }}</p>
+  <p>B - {{ b }}</p>
+  <p>Age + A = {{addToA}}</p>
+  <p>Age + B = {{addToB}}</p>
 
-    <button @click="count++"></button>
-    <p>Count = {{ count }} </p>
-    <p>Age + count = {{ totalCount }} </p>
+  <button @click="count++"></button>
+  <p>Count = {{ count }} </p>
+  <p>Age + count = {{ totalCount }} </p>
 
-    <h1>Dynamic CSS</h1>
+  <h1>Dynamic CSS</h1>
 
-    <h2>Example 1</h2>
-    <!-- key:value pair
+  <h2>Example 1</h2>
+  <!-- key:value pair
     IF color === true, the CSS class of color will be applied
     Class is dependant on truth or false of key:value pair
 
     @click - if the DATA attr is true, apply CSS class
     if its NOT true !, don't apply the CSS class
     -->
-    <!-- <div @click="available = !available" :class="{color: available}">
+  <!-- <div @click="available = !available" :class="{color: available}">
       <span>Ryu</span>
     </div>
 
     <div @click="ready = !ready" :class="{readyStatus: ready}">
       <!-- if readyStatus === false, dont apply css -->
-    <!-- <span class="bus">bus</span>
+  <!-- <span class="bus">bus</span>
   </div>  -->
 
-    <h2>Example 2</h2>
-    <button @click="nearby = !nearby">Toggle nearby</button>
-    <!-- on click, check if nearby is true/false -->
-    <button @click="available = !available">Toggle available</button>
-    <!-- When button above is clicked, compClasses reference the data object - checks for truth/false - if true, style is applied -->
-    <div :class="compClasses">
-      <span>Ryu</span>
-    </div>
+  <h2>Example 2</h2>
+  <button @click="nearby = !nearby">Toggle nearby</button>
+  <!-- on click, check if nearby is true/false -->
+  <button @click="available = !available">Toggle available</button>
+  <!-- When button above is clicked, compClasses reference the data object - checks for truth/false - if true, style is applied -->
+  <div :class="compClasses">
+    <span>Ryu</span>
+  </div>
 
-    <h2>Example 3</h2>
-    <button @click="timeStamp = !timeStamp">Toggle on time or not</button>
-    <div :class="workStatus">
-      <span class="work">Work time</span>
-    </div>
-    <br>
-    <h1>Conditionals</h1>
+  <h2>Example 3</h2>
+  <button @click="timeStamp = !timeStamp">Toggle on time or not</button>
+  <div :class="workStatus">
+    <span class="work">Work time</span>
+  </div>
+  <br>
+  <h1>Conditionals</h1>
 
-    <button @click="error = !error">Toggle Error</button>
-    <button @click="success = !success">Toggle Success</button>
-    <p v-if="error">Error</p>
-    <p v-else-if="success">Success</p>
+  <button @click="error = !error">Toggle Error</button>
+  <button @click="success = !success">Toggle Success</button>
+  <p v-if="error">Error</p>
+  <p v-else-if="success">Success</p>
 
-    <!-- <p v-show="error">error</p>
+  <!-- <p v-show="error">error</p>
     <p v-show="success">success</p> -->
 
-    <h2>Looping v for</h2>
-    <ul>
-      <li v-for="character in characters">{{ character }}</li>
-    </ul>
+  <h2>Looping v for</h2>
+  <ul>
+    <li v-for="character in characters">{{ character }}</li>
+  </ul>
 
-    <ul>
-      <li v-for="(ninja, i) in ninjas"> {{ i }}. {{ ninja.name }} - {{ ninja.age }}</li>
-    </ul>
+  <ul>
+    <li v-for="(ninja, i) in ninjas"> {{ i }}. {{ ninja.name }} - {{ ninja.age }}</li>
+  </ul>
 
-    <!-- template tag doesn't get outputed  - Vue reads it and doesnt inject it -->
-    <template v-for="(ninja, i) in ninjas">
-      <h3>{{ i }}. {{ninja.name}}</h3>
-      <p>{{ninja.age}}</p>
-    </template>
+  <!-- template tag doesn't get outputed  - Vue reads it and doesnt inject it -->
+  <template v-for="(ninja, i) in ninjas">
+    <h3>{{ i }}. {{ninja.name}}</h3>
+    <p>{{ninja.age}}</p>
+  </template>
 
 
-    <!-- Loop through each object - use (val,key) to loop again  for each object -->
-    <template v-for="ninja in ninjas">
-      <div v-for="(val,key) in ninja">
-        <p>{{ key }} - {{ val }}</p>
-      </div>
-    </template>
+  <!-- Loop through each object - use (val,key) to loop again  for each object -->
+  <template v-for="ninja in ninjas">
+    <!-- this v-for loops through each object item -->
+    <div v-for="(val,key) in ninja">
+      <p>{{ key }} - {{ val }}</p>
+    </div>
+  </template>
+
+  <hr>
+
+  <h1>Components</h1>
+  <p>A reusable piece of code or template we can use in different vue instances</p>
+
+  <div id="vue-app-one">
+    <h2>Vue app one</h2>
+    <greeting></greeting>
+  </div>
+
+  <div id="vue-app-two">
+    <h2>Vue app two</h2>
+    <greeting></greeting>
+  </div>
+
+  <hr>
+
+  <h1>Refs</h1>
+
+  <div id="vue-app-three">
+    <h2>Refs</h2>
+    <div v-if="someCondition">
+      <input type="text" id="theinput" ref="inputEl">
+    </div>
+
+    <button @click="readRefs">Submit</button>
+    <p>Your fav food: {{ output }}</p>
+    <div ref="test">Hello</div>
+  </div>
+
+
 
 
 
